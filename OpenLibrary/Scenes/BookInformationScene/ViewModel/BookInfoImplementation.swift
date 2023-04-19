@@ -55,7 +55,7 @@ class BookInfoImplementation
                         return
                     }
                     let request = URLRequest(url: url)
-                    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                    let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
                         if let error = error {
                             print(error.localizedDescription)
                         }
@@ -84,7 +84,7 @@ class BookInfoImplementation
                         return
                     }
                     let request = URLRequest(url: url)
-                    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                    let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
                         if let error = error {
                             print(error.localizedDescription)
                         }
