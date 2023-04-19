@@ -24,14 +24,16 @@ class BookViewController: UIViewController {
         viewModel?.viewDidAnotherload(stringUrl ?? "")
         viewModel?.raitingBook(ratingUrl ?? "")
         
-        viewModel?.didUpdateAnotherBookView = { book in
+        viewModel?.didUpdateAnotherBookView = { [weak self] book in
+            guard let self = self else { return }
             self.bookInfoLable.text = "\(book.title)"
             self.descriptionLabel.text = book.description
             let picture = book.covers[0]
             self.imageView.downloadImage(for: "https://covers.openlibrary.org/b/id/\(picture)-M.jpg")
         }
         
-        viewModel?.didUpdateBooksModel = { books in
+        viewModel?.didUpdateBooksModel = { [weak self] books in
+            guard let self = self else { return }
             self.bookInfoLable.text = "\(books.title)"
             self.descriptionLabel.text = books.description.value
             let picture = books.covers[0]
@@ -39,7 +41,8 @@ class BookViewController: UIViewController {
             
         }
         
-        viewModel?.didUpdateRaitingBook = { book in
+        viewModel?.didUpdateRaitingBook = { [weak self] book in
+            guard let self = self else { return }
             let sum = book.summary.average
             self.ratingLabel.text = "Rating: \(String(format: "%.2f", sum))🔸"
         }

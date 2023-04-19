@@ -23,10 +23,7 @@ class ViewModelImplementation: ViewModel {
     var didUpdateBooksModel: ((OpenLibraryModel) -> Void)?
     
     weak var viewController: ViewController?
-    //weak var bookViewController: BookViewController?
 
-    
-    
     func viewDidload() {
         // "https://openlibrary.org/people/email2020/lists/OL176848L/Random_books_to_read_one_day/export?format=json"
         let url = "https://openlibrary.org/people/angeliki39/lists/OL151774L/Books_I_want_to_read/export?format=json"
