@@ -44,7 +44,7 @@ class BookViewController: UIViewController {
         viewModel?.didUpdateRaitingBook = { [weak self] book in
             guard let self = self else { return }
             let sum = book.summary.average
-            self.ratingLabel.text = "Rating: \(String(format: "%.2f", sum))🔸"
+            self.ratingLabel.text = "Rating: \(String(format: "%.1f", sum)) / 5.0🔸"
         }
 
         
